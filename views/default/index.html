@@ -1,0 +1,32 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<center style="background-color: #333; color:white; padding:30px">
+  <h1>Portal
+</center>
+{{end}}
+
+    {{ if 'user' in locals() and 'tenant' in locals(): }}
+    
+    <div class="row">
+  <div class="col-sm-8 mx-auto" >
+      <div class="card text-center">
+  <div style="padding:5px" class="card-header">
+      <h4>Servicio de Autentificación</h4>
+  </div>
+  <div style="padding:5px" class="card-body">
+      <p class="card-text">Estimado {{=user.first_name}} {{=user.last_name}}, su contraseña ha sido reestablecida, por favor inicie sesion en su portal <a target="_blank" rel="noopener noreferrer" href="{{=tenant.login_url}}">{{=tenant.login_url}}</a></p>
+    <a target="_blank" rel="noopener noreferrer" href="{{=tenant.login_url}}" class="btn btn-primary">ir mi portal</a>
+  </div>
+</div>
+  </div>
+</div>
+    
+    
+    {{ else: }}
+    <center style="padding:50px">
+   <h4>
+       Servicio de Autentificación
+        </h4>
+</center>
+    {{pass}}
